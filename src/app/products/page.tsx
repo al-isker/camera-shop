@@ -1,11 +1,9 @@
-import {FC} from "react";
+import {NextPage} from "next";
 
-const ProductsPage: FC = () => {
-  return (
-    <main>
-      Products
-    </main>
-  );
+import {Products} from '@/components/screens/products/Products'
+
+const ProductsPage: NextPage = () => {
+  return <Products />
 };
 
 export default ProductsPage;

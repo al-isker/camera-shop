@@ -1,11 +1,9 @@
-import {FC} from 'react';
+import {NextPage} from "next";
 
-const CartPage: FC = () => {
-  return (
-    <main>
-      Cart
-    </main>
-  );
+import {Cart} from '@/components/screens/cart/Cart';
+
+const CartPage: NextPage = () => {
+  return <Cart />;
 };
 
 export default CartPage;
