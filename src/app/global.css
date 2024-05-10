@@ -1,11 +1,15 @@
 :root {
     --padding: 40px;
+    --max-width: 1440px;
 
     --main-color: #1b1b1d;
-    --second-color: #636369;
-    --red: red;
+    --main-light-color: #37373c;
+    --second-color: #eaeaea;
+    --second-light-color: #686868;
 }
 
 body {
+    margin: auto;
     font-size: 14px;
+    color: var(--main-color);
 }

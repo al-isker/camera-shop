@@ -1,12 +1,14 @@
 .header {
+    margin: auto;
+    max-width: var(--max-width);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px var(--padding);
+    padding: 10px var(--padding);
 }
 
 .logo {
-    height: 80px;
+    height: 70px;
     width: auto;
     fill: var(--main-color);
 }
@@ -17,7 +19,7 @@
 }
 
 .navbar_item {
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: 500;
 }
 .navbar_item::after {
@@ -32,7 +34,7 @@
 }
 
 .navbar_item_active {
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: 500;
 }
 .navbar_item_active::after {
@@ -53,7 +55,7 @@
 .cart_count {
     position: absolute;
     top: 0;
-    left: -5px;
+    left: -7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,11 +63,11 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: color-mix(in srgb, var(--second-color) 80%, transparent );
+    background-color: color-mix(in srgb, var(--main-color) 70%, transparent );
 }
 
 .cart_img {
-    height: 45px;
+    height: 35px;
     width: auto;
     aspect-ratio: 1;
 }
