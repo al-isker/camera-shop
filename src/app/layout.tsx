@@ -1,10 +1,14 @@
+import {ReactNode} from "react";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Jost } from "next/font/google";
 
-import {Header} from '@/components/simple/header/Header';
-import {Footer} from '@/components/simple/footer/Footer';
+import {Header} from "@/components/simple/header/Header";
+import {Footer} from "@/components/simple/footer/Footer";
 
-const montserrat = Montserrat({ subsets: ["cyrillic", "latin"] });
+import './reset.css';
+import './global.css';
+
+const jost = Jost({ subsets: ["cyrillic", "latin"] });
 
 export const metadata: Metadata = {
   title: "Camera Shop",
@@ -12,16 +16,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="ru">
-      <body className={montserrat.className}>
-        <Header/>
+      <body className={jost.className}>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
