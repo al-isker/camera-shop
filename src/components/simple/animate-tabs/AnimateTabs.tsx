@@ -1,5 +1,5 @@
 import {FC, MouseEventHandler, ReactNode} from 'react';
-import { LayoutGroup, motion } from "framer-motion";
+import {motion } from "framer-motion";
 
 import s from './animate-tabs.module.css';
 
