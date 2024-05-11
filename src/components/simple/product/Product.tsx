@@ -21,7 +21,7 @@ export const Product:FC<ICamera> = ({id, img, name, category, resolution, price,
         <div className={s.img} style={{backgroundImage: `url("${img}")`}}></div>
         <div className={s.name}>{name}</div>
         {category && (
-          <div className={s.info}>вид: {category}</div>
+          <div className={s.info}>категория: <span>{category.toLowerCase()}</span></div>
         )}
         {resolution && (
           <div className={s.info}>разрешение: <span>{resolution}</span></div>

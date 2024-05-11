@@ -13,7 +13,7 @@ export const Products: FC = () => {
 
   return (
     <main className={s.products}>
-      {data?.map((item: ICamera) => (
+      {data?.map((item: ICamera, i: number) => (
         <Product
           key={item.id}
           id={item.id}
@@ -22,6 +22,7 @@ export const Products: FC = () => {
           category={item.category}
           price={item.price}
           isInCart={item.isInCart}
+          delay={i/20}
         />
       ))}
     </main>

@@ -14,7 +14,10 @@ export const Category: FC = () => {
   const {slug} = useParams();
   const {data} = useGetAllCameras();
 
+  // @ts-ignore
   const targetCategory: string = categoryMap[slug];
+  // @ts-ignore
+  const categoryTitle: string = categoryMapTitle[slug]
 
   const resultData = useMemo(() => {
     return data?.filter((item: ICamera) => item.category === targetCategory);
@@ -22,18 +25,19 @@ export const Category: FC = () => {
 
   return (
     <main className={s.category}>
-      <h2 className={s.category_title}>{categoryMapTitle[slug]}</h2>
+      <h2 className={s.category_title}>{categoryTitle}</h2>
 
       <div className={s.category_list}>
-        {resultData?.map((item: ICamera) => (
+        {resultData?.map((item: ICamera, i: number) => (
           <Product
             key={item.id}
             id={item.id}
             img={item.img}
             name={item.name}
-            category={item.category}
+            resolution={item.resolution}
             price={item.price}
             isInCart={item.isInCart}
+            delay={i/20}
           />
         ))}
       </div>

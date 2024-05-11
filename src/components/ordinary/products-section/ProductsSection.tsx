@@ -29,7 +29,7 @@ export const ProductsSection:FC = () => {
           setActive={setActiveResolution}
         />
         <div className={s.products_list}>
-          {resultData?.slice(0, 4).map((item: ICamera) => (
+          {resultData?.slice(0, 4).map((item: ICamera, i: number) => (
             <Product
               key={item.id}
               id={item.id}
@@ -38,6 +38,7 @@ export const ProductsSection:FC = () => {
               category={item.category}
               price={item.price}
               isInCart={item.isInCart}
+              delay={i/10}
             />
           ))}
         </div>
