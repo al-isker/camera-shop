@@ -1,0 +1,27 @@
+.products_wrap {
+    background-color: white;
+}
+
+.products {
+    margin: auto;
+    max-width: var(--max-width);
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3em;
+    letter-spacing: 1.5px;
+    color: color-mix(in srgb, var(--black) 70%, white);
+}
+
+.products_list {
+    display: flex;
+    justify-content: stretch;
+    gap: 35px;
+}
+
