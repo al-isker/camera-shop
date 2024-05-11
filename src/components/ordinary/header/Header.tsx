@@ -1,18 +1,27 @@
 "use client"
 
-import {FC} from "react";
+import {FC, useMemo} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
 import {routes} from "@/config/routes";
+import {useGetAllCameras} from "@/queries/cameras.query";
+
 import logo from './assets/logo.jpg';
 import cart from './assets/cart.svg';
-
 import s from './header.module.css';
 
-export const Header:FC = ({}) => {
+export const Header: FC = ({}) => {
   const pathname = usePathname();
+
+  const {data} = useGetAllCameras();
+
+  const cartCount = useMemo(() => {
+    if (data) {
+      return data.filter((item: {isInCart: boolean}) => item.isInCart).length;
+    }
+  }, [data]);
 
   return (
     <header className={s.header}>
@@ -34,10 +43,23 @@ export const Header:FC = ({}) => {
         </Link>
       </nav>
 
-      <Link href={routes.cart} className={s.cart}>
-        <span className={s.cart_count}>{6}</span>
-        <Image className={s.cart_img} src={cart} alt="cart"/>
-      </Link>
+      <Cart count={cartCount} />
     </header>
   );
 };
+
+
+interface CartProps {
+  count: number
+}
+
+const Cart:FC<CartProps> = ({count}) => {
+  return (
+    <Link href={routes.cart} className={s.cart}>
+      {count > 0 && (
+        <span className={s.cart_count}>{count}</span>
+      )}
+      <Image className={s.cart_img} src={cart} alt="cart"/>
+    </Link>
+  )
+}

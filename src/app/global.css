@@ -2,14 +2,16 @@
     --padding: 40px;
     --max-width: 1440px;
 
-    --main-color: #1b1b1d;
-    --main-light-color: #37373c;
-    --second-color: #eaeaea;
-    --second-light-color: #686868;
+    --black: #000;
+    --main-dark-color: #322929;
+    --main-light-color: #7c5050;
+
+    /*--main-light-color: #37373c;*/
+    /*--second-color: #eaeaea;*/
+    /*--second-light-color: #686868;*/
 }
 
 body {
     margin: auto;
     font-size: 14px;
-    color: var(--main-color);
 }

@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import {CategoriesSection} from "@/components/simple/categories-section/CategoriesSection";
-import {ProductsSection} from "@/components/simple/products-section/ProductsSection";
+import {CategoriesSection} from "@/components/ordinary/categories-section/CategoriesSection";
+import {ProductsSection} from "@/components/ordinary/products-section/ProductsSection";
 
 export const Home: FC = () => {
   return (
