@@ -10,7 +10,7 @@ export const useGetAllCameras = () => useQuery({
 
 
 export const useGetByIdCameras = (id: string) => useQuery({
-  queryKey: ['cameras'],
+  queryKey: ['cameras', id],
   queryFn: () => CamerasService.getById(id),
   select: ({data}) => data
 });

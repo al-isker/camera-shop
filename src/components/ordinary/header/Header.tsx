@@ -24,26 +24,28 @@ export const Header: FC = ({}) => {
   }, [data]);
 
   return (
-    <header className={s.header}>
-      <Image className={s.logo} src={logo} alt="logo"/>
+    <header className={s.header_wrap}>
+      <div className={s.header}>
+        <Image className={s.logo} src={logo} alt="logo"/>
 
-      <nav className={s.navbar}>
-        <Link
-          href={routes.home}
-          className={pathname === routes.home ? s.navbar_item_active : s.navbar_item}
-        >
-          Главная
-        </Link>
+        <nav className={s.navbar}>
+          <Link
+            href={routes.home}
+            className={pathname === routes.home ? s.navbar_item_active : s.navbar_item}
+          >
+            Главная
+          </Link>
 
-        <Link
-          href={routes.products}
-          className={pathname.includes(routes.products) ? s.navbar_item_active : s.navbar_item}
-        >
-          Товары
-        </Link>
-      </nav>
+          <Link
+            href={routes.products}
+            className={pathname.includes(routes.products) ? s.navbar_item_active : s.navbar_item}
+          >
+            Товары
+          </Link>
+        </nav>
 
-      <Cart count={cartCount} />
+        <Cart count={cartCount}/>
+      </div>
     </header>
   );
 };
@@ -53,7 +55,7 @@ interface CartProps {
   count: number
 }
 
-const Cart:FC<CartProps> = ({count}) => {
+const Cart: FC<CartProps> = ({count}) => {
   return (
     <Link href={routes.cart} className={s.cart}>
       {count > 0 && (

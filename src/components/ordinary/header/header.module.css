@@ -1,3 +1,7 @@
+.header_wrap {
+    border-bottom: 2px solid color-mix(in srgb, var(--main-dark-color) 50%, white);
+}
+
 .header {
     margin: auto;
     max-width: var(--max-width);
@@ -8,7 +12,7 @@
 }
 
 .logo {
-    height: 70px;
+    height: 5em;
     width: auto;
 }
 
@@ -74,3 +78,29 @@
 }
 
 
+@media (max-width: 380px) {
+    .header {
+        padding-block: 5px;
+    }
+    .logo {
+        height: 3em;
+    }
+    .navbar_item_active {
+        font-size: 1.3em;
+    }
+    .navbar_item {
+        font-size: 1.3em;
+    }
+    .navbar_item_active::after {
+        height: 1px;
+    }
+    .cart_img {
+        height: 20px;
+    }
+    .cart_count {
+        font-size: 0.9em;
+        height: 14px;
+        width: 14px;
+    }
+
+}

@@ -23,7 +23,7 @@ export const CategoriesSection:FC = () => {
           <CategoryItem
             src={mirrorless.src}
             title="Беззеркальные"
-            description="фотоаппарат без оптического видоискателя, вместо которого используется высококачественный электронный визир"
+            description="фотоаппарат без оптического видоискателя, вместо которого используется электронный визор"
             href={routes.mirrorless}
           />
           <CategoryItem
@@ -49,8 +49,10 @@ interface CategoryItemProps {
 const CategoryItem: FC<CategoryItemProps> = ({src, title, description, href}) => {
   return (
     <Link href={href} className={s.category_item}>
-      <div className={s.category_title}>{title}</div>
-      <div className={s.category_description}>{description}</div>
+      <div className={s.category_info}>
+        <div className={s.category_title}>{title}</div>
+        <div className={s.category_description}>{description}</div>
+      </div>
       <img className={s.category_img} src={src} alt="img"/>
     </Link>
   );

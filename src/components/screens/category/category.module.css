@@ -1,0 +1,21 @@
+.category {
+    max-width: var(--max-width);
+    padding: calc(var(--padding)/1.5) var(--padding) calc(var(--padding)/3);
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category_title {
+    font-size: 2.4em;
+    font-weight: 600;
+    color: var(--main-light-color) !important;
+}
+
+.category_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}

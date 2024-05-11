@@ -7,4 +7,5 @@ export interface ICamera {
   price: number
   img: string
   isInCart: boolean
+  delay?: number
 }

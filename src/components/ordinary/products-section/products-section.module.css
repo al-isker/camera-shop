@@ -5,7 +5,7 @@
 .products {
     margin: auto;
     max-width: var(--max-width);
-    padding: var(--padding);
+    padding: 40px var(--padding);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -20,8 +20,25 @@
 }
 
 .products_list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: column;
     justify-content: stretch;
     gap: 35px;
 }
+
+@media(max-width: 1200px) {
+    .products_list {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media(max-width: 620px) {
+    .products_list {
+        grid-template-columns: repeat(1, minmax(250px, 1fr));
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
 

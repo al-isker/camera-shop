@@ -1,0 +1,9 @@
+.products {
+    max-width: var(--max-width);
+    padding: calc(var(--padding)/1.5) var(--padding) calc(var(--padding)/3);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
