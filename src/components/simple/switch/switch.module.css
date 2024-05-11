@@ -1,0 +1,6 @@
+.switch {
+    border-radius: 40px;
+    background-color: color-mix(in srgb, var(--black) 20%, white);
+    display: flex;
+    gap: 10px;
+}

@@ -13,6 +13,7 @@ export const ProductsSection:FC = () => {
   return (
     <section className={s.products_wrap}>
       <div className={s.products}>
+
         <h2 className={s.title}>Товары</h2>
         <div className={s.products_list}>
           {data?.slice(0, 4).map((item: ICamera) => (
