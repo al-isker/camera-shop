@@ -7,10 +7,11 @@ import {useDeleteCartCameras} from "@/queries/cameras.query";
 import {useQueryClient} from "@tanstack/react-query";
 
 interface Props {
-  id: string;
+  style: object
+  id: string
 }
 
-export const ButtonDelete:FC<Props> = ({id}) => {
+export const ButtonDelete:FC<Props> = ({style, id}) => {
   const {mutate, isPending, isSuccess} = useDeleteCartCameras()
   const queryClient = useQueryClient();
 
@@ -33,6 +34,7 @@ export const ButtonDelete:FC<Props> = ({id}) => {
       type="button"
       onClick={handleClick}
       disabled={isPending}
+      style={style}
     >
       <Image className={s.img} src={deleteImg} alt="delete" />
     </button>

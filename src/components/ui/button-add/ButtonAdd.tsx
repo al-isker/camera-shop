@@ -7,10 +7,11 @@ import add from './assets/add.svg'
 import s from "./button-add.module.css";
 
 interface Props {
+  style: object
   id: string
 }
 
-export const ButtonAdd:FC<Props> = ({id}) => {
+export const ButtonAdd:FC<Props> = ({style, id}) => {
   const {mutate, isPending, isSuccess} = useAddCartCameras();
   const queryClient = useQueryClient();
 
@@ -33,6 +34,7 @@ export const ButtonAdd:FC<Props> = ({id}) => {
       type="button"
       onClick={handleClick}
       disabled={isPending}
+      style={style}
     >
       <Image className={s.img} src={add} alt="add" />
     </button>
