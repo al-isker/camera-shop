@@ -1,0 +1,11 @@
+.loading_wrap {
+    width: 100%;
+    position: absolute;
+    transform: scaleY(0.5);
+    top: -3px;
+    color: wheat;
+}
+
+.loading {
+    width: 100%;
+}

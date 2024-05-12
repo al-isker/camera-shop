@@ -9,13 +9,14 @@ import {useGetAllCameras} from "@/queries/cameras.query";
 import {ICamera} from "@/types/camera.types";
 
 import s from "./products.module.css";
+import {Loading} from "@/components/ui/loading/Loading";
 
 const NUMBER_PRODUCTS = 8;
 
 export const Products: FC = () => {
   const [page, setPage] = useState(1);
 
-  const {data} = useGetAllCameras();
+  const {data, isPending} = useGetAllCameras();
 
   const handlePageClick = (_: ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -23,6 +24,7 @@ export const Products: FC = () => {
 
   return (
     <Main>
+      <Loading isVisible={isPending} />
       <div className={s.products}>
         <div className={s.products_list}>
           {data

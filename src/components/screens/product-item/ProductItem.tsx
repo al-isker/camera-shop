@@ -8,15 +8,17 @@ import {ButtonAdd} from "@/components/ui/button-add/ButtonAdd";
 import {useGetByIdCameras} from "@/queries/cameras.query";
 
 import s from "./product-item.module.css";
+import {Loading} from "@/components/ui/loading/Loading";
 
 export const ProductItem:FC = () => {
   const {slug} = useParams();
 
   // @ts-ignore
-  const {data} = useGetByIdCameras(slug);
+  const {data, isPending} = useGetByIdCameras(slug);
 
   return (
     <Main>
+      <Loading isVisible={isPending} />
       {data && (
         <div className={s.product_item}>
           <div className={s.top}>

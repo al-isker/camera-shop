@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 15px;
+    overflow: scroll;
 }
 
 @media (max-width: 800px) {

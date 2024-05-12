@@ -10,10 +10,11 @@ import {useGetAllCameras, useGetByParams} from "@/queries/cameras.query";
 import {routes} from "@/config/routes";
 import {ICamera} from "@/types/camera.types";
 import s from "./cart.module.css";
+import {Loading} from "@/components/ui/loading/Loading";
 
 
 export const Cart:FC = () => {
-  const {data} = useGetByParams('isInCart', "true");
+  const {data, isPending} = useGetByParams('isInCart', "true");
 
   const total = useMemo(() => {
     return data?.reduce((acc: number, item: ICamera) => {
@@ -27,6 +28,7 @@ export const Cart:FC = () => {
 
   return (
     <Main>
+      <Loading isVisible={isPending} />
       <div className={s.cart}>
         <h2 className={s.cart_title}>Корзина</h2>
 

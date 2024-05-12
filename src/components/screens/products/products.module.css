@@ -2,8 +2,16 @@
     max-width: var(--max-width);
     padding: var(--padding) var(--padding) 80px;
     margin: auto;
+}
 
+.products_list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
