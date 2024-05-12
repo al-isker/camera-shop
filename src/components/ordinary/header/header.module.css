@@ -1,4 +1,6 @@
 .header_wrap {
+    flex-grow: 0;
+    flex-shrink: 0;
     border-bottom: 2px solid color-mix(in srgb, var(--main-dark-color) 50%, white);
 }
 
@@ -77,7 +79,7 @@
 .cart_count {
     position: absolute;
     top: 0;
-    left: -7px;
+    right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

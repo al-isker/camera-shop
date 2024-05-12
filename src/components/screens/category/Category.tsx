@@ -2,6 +2,7 @@
 
 import {FC, useMemo} from 'react';
 import {useParams} from "next/navigation";
+import {Main} from "@/components/ordinary/main/Main";
 import {Product} from "@/components/simple/product/Product";
 
 import {useGetAllCameras} from "@/queries/cameras.query";
@@ -24,23 +25,25 @@ export const Category: FC = () => {
   }, [data]);
 
   return (
-    <main className={s.category}>
-      <h2 className={s.category_title}>{categoryTitle}</h2>
+    <Main>
+      <div className={s.category}>
+        <h2 className={s.category_title}>{categoryTitle}</h2>
 
-      <div className={s.category_list}>
-        {resultData?.map((item: ICamera, i: number) => (
-          <Product
-            key={item.id}
-            id={item.id}
-            img={item.img}
-            name={item.name}
-            resolution={item.resolution}
-            price={item.price}
-            isInCart={item.isInCart}
-            delay={i/20}
-          />
-        ))}
+        <div className={s.category_list}>
+          {resultData?.map((item: ICamera, i: number) => (
+            <Product
+              key={item.id}
+              id={item.id}
+              img={item.img}
+              name={item.name}
+              resolution={item.resolution}
+              price={item.price}
+              isInCart={item.isInCart}
+              delay={i / 20}
+            />
+          ))}
+        </div>
       </div>
-    </main>
+    </Main>
   );
 };

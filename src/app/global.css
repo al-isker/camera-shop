@@ -5,14 +5,12 @@
     --black: #000;
     --main-dark-color: #2c2525;
     --main-light-color: #7c5050;
-
-    /*--main-light-color: #37373c;*/
-    /*--second-color: #eaeaea;*/
-    /*--second-light-color: #686868;*/
 }
 
 body {
-    margin: auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     font-size: 15px;
 }
 

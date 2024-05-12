@@ -1,6 +1,6 @@
 .products {
     max-width: var(--max-width);
-    padding: calc(var(--padding)/1.5) var(--padding) calc(var(--padding)/3);
+    padding: var(--padding) var(--padding) 80px;
     margin: auto;
 
     display: grid;
