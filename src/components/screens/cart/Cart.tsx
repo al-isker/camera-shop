@@ -1,13 +1,15 @@
 "use client"
 
 import {FC, useMemo} from 'react';
+import Link from "next/link";
 import {useGetAllCameras} from "@/queries/cameras.query";
 import {CartProduct} from "@/components/simple/cart-product/CartProduct";
 
+import {routes} from "@/config/routes";
 import {ICamera} from "@/types/camera.types";
 import s from "./cart.module.css";
 
-export const Cart: FC = () => {
+export const Cart:FC = () => {
   const {data} = useGetAllCameras();
 
   const resultData = useMemo(() => {
@@ -15,10 +17,14 @@ export const Cart: FC = () => {
   }, [data]);
 
   const total = useMemo(() => {
-    return resultData.reduce((acc: number, item: ICamera) => {
+    return resultData?.reduce((acc: number, item: ICamera) => {
       return acc + item.price;
     }, 0);
   }, [resultData]);
+
+  if(resultData?.length === 0) {
+    return <EmptyCart />
+  }
 
   return (
     <main className={s.cart}>
@@ -53,3 +59,17 @@ export const Cart: FC = () => {
     </main>
   );
 };
+
+
+const EmptyCart:FC = () => {
+  return (
+    <main className={s.cart}>
+      <h2 className={s.cart_title}>Корзина</h2>
+
+      <div className={s.empty}>
+        <div className={s.empty_message}>Тут пока пусто...</div>
+        <Link className={s.link} href={routes.products}>исправим?</Link>
+      </div>
+    </main>
+  )
+}
