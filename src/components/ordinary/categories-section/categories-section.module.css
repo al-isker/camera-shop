@@ -5,7 +5,7 @@
 .categories {
     margin: auto;
     max-width: var(--max-width);
-    padding: 40px var(--padding);
+    padding: 40px var(--padding) 80px;
     display: flex;
     flex-direction: column;
     gap: 30px;

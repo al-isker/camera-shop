@@ -26,7 +26,10 @@ export const Header: FC = ({}) => {
   return (
     <header className={s.header_wrap}>
       <div className={s.header}>
-        <Image className={s.logo} src={logo} alt="logo"/>
+        <Link href={routes.home} className={s.logo}>
+          <Image className={s.logo_img} src={logo} alt="logo"/>
+          <div className={s.logo_title}>Camera Shop</div>
+        </Link>
 
         <nav className={s.navbar}>
           <Link
