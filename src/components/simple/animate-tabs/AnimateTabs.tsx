@@ -1,5 +1,5 @@
 import {FC, MouseEventHandler, ReactNode} from 'react';
-import {motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 import s from './animate-tabs.module.css';
 
@@ -12,8 +12,9 @@ interface AnimateTabsProps {
 export const AnimateTabs:FC<AnimateTabsProps> = ({options, active, setActive}) => {
   return (
     <div className={s.tab_list}>
-      {options.map((option: string) => (
+      {options.map((option: string, i: number) => (
         <AnimateTabsItem
+          key={i}
           isActive={option === active}
           onClick={() => setActive(option)}
         >

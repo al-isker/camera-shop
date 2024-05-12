@@ -22,7 +22,7 @@ export const CategoriesSection:FC = () => {
           />
           <CategoryItem
             src={mirrorless.src}
-            title="Беззеркальные"
+            title="Гибридные"
             description="фотоаппарат без оптического видоискателя, вместо которого используется электронный визор"
             href={routes.mirrorless}
           />

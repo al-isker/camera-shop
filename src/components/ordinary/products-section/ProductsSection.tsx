@@ -4,20 +4,16 @@ import {FC, useMemo, useState} from "react";
 import {Product} from "@/components/simple/product/Product";
 import {AnimateTabs} from "@/components/simple/animate-tabs/AnimateTabs";
 
-import {useGetAllCameras} from "@/queries/cameras.query";
+import {useGetLimitByParams} from "@/queries/cameras.query";
 import {ICamera} from "@/types/camera.types";
 import {resolutions} from "@/config/cameras.data";
 
 import s from "@/components/ordinary/products-section/products-section.module.css";
 
 export const ProductsSection:FC = () => {
-  const {data} = useGetAllCameras();
-
   const [activeResolution, setActiveResolution] = useState(resolutions[0]);
 
-  const resultData = useMemo(() => {
-    return data?.filter((item: ICamera) => item.resolution === activeResolution);
-  }, [data, activeResolution]);
+  const {data} = useGetLimitByParams('4', 'resolution', activeResolution);
 
   return (
     <section className={s.products_wrap}>
@@ -29,7 +25,7 @@ export const ProductsSection:FC = () => {
           setActive={setActiveResolution}
         />
         <div className={s.products_list}>
-          {resultData?.slice(0, 4).map((item: ICamera, i: number) => (
+          {data?.map((item: ICamera, i: number) => (
             <Product
               key={item.id}
               id={item.id}

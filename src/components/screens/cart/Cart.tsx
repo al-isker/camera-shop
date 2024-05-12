@@ -6,26 +6,22 @@ import Link from "next/link";
 import {Main} from "@/components/ordinary/main/Main";
 import {CartProduct} from "@/components/simple/cart-product/CartProduct";
 
-import {useGetAllCameras} from "@/queries/cameras.query";
+import {useGetAllCameras, useGetByParams} from "@/queries/cameras.query";
 import {routes} from "@/config/routes";
 import {ICamera} from "@/types/camera.types";
 import s from "./cart.module.css";
 
 
 export const Cart:FC = () => {
-  const {data} = useGetAllCameras();
-
-  const resultData = useMemo(() => {
-    return data?.filter((item: ICamera) => item.isInCart);
-  }, [data]);
+  const {data} = useGetByParams('isInCart', "true");
 
   const total = useMemo(() => {
-    return resultData?.reduce((acc: number, item: ICamera) => {
+    return data?.reduce((acc: number, item: ICamera) => {
       return acc + item.price;
     }, 0);
-  }, [resultData]);
+  }, [data]);
 
-  if(resultData?.length === 0) {
+  if(data?.length === 0) {
     return <EmptyCart />
   }
 
@@ -35,7 +31,7 @@ export const Cart:FC = () => {
         <h2 className={s.cart_title}>Корзина</h2>
 
         <div className={s.cart_list}>
-          {resultData?.map((item: ICamera, i: number) => (
+          {data?.map((item: ICamera, i: number) => (
             <CartProduct
               key={item.id}
               id={item.id}

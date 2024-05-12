@@ -9,12 +9,12 @@ interface categoryMap {
 
 export const categoryMap: categoryMap = {
   reflex: "Зеркальный",
-  mirrorless: "Беззеркальный",
+  mirrorless: "Гибридный",
   compact: "Компактный"
 }
 
 export const categoryMapTitle: categoryMap = {
   reflex: "Зеркальные",
-  mirrorless: "Беззеркальные",
+  mirrorless: "Гибридные",
   compact: "Компактные"
 }

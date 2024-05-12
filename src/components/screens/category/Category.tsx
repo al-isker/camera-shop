@@ -1,36 +1,46 @@
 "use client"
 
-import {FC, useMemo} from 'react';
+import {ChangeEvent, FC, useState} from 'react';
 import {useParams} from "next/navigation";
 import {Main} from "@/components/ordinary/main/Main";
 import {Product} from "@/components/simple/product/Product";
+import {Pagination} from "@mui/material";
 
-import {useGetAllCameras} from "@/queries/cameras.query";
+import {useGetByParams} from "@/queries/cameras.query";
 import {categoryMap, categoryMapTitle} from "@/config/cameras.data";
 import {ICamera} from "@/types/camera.types";
 
 import s from "./category.module.css";
+import {Loading} from "@/components/ui/loading/Loading";
+
+const NUMBER_PRODUCTS = 8;
 
 export const Category: FC = () => {
+  const [page, setPage] = useState(1);
   const {slug} = useParams();
-  const {data} = useGetAllCameras();
 
   // @ts-ignore
   const targetCategory: string = categoryMap[slug];
+
+  const {data, isPending} = useGetByParams('category', targetCategory);
+
+  const handlePageClick = (_: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  }
+
   // @ts-ignore
   const categoryTitle: string = categoryMapTitle[slug]
 
-  const resultData = useMemo(() => {
-    return data?.filter((item: ICamera) => item.category === targetCategory);
-  }, [data]);
-
   return (
     <Main>
+      <Loading isVisible={isPending} />
       <div className={s.category}>
         <h2 className={s.category_title}>{categoryTitle}</h2>
 
         <div className={s.category_list}>
-          {resultData?.map((item: ICamera, i: number) => (
+          {data
+            ?.slice((page - 1) * NUMBER_PRODUCTS, page * NUMBER_PRODUCTS)
+            .map((item: ICamera, i: number) => (
             <Product
               key={item.id}
               id={item.id}
@@ -43,6 +53,16 @@ export const Category: FC = () => {
             />
           ))}
         </div>
+
+        {data && (
+          <Pagination
+            className={s.pagination}
+            page={page}
+            onChange={handlePageClick}
+            count={Math.ceil(data?.length / NUMBER_PRODUCTS)}
+            shape="rounded"
+          />
+        )}
       </div>
     </Main>
   );

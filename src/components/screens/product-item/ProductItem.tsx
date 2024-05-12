@@ -16,8 +16,8 @@ export const ProductItem:FC = () => {
   const {data} = useGetByIdCameras(slug);
 
   return (
-    data && (
-      <Main>
+    <Main>
+      {data && (
         <div className={s.product_item}>
           <div className={s.top}>
             <div className={s.img} style={{backgroundImage: `url("${data.img}")`}}></div>
@@ -60,7 +60,7 @@ export const ProductItem:FC = () => {
             {data.description}
           </div>
         </div>
-      </Main>
-    )
+      )}
+    </Main>
   );
 };
