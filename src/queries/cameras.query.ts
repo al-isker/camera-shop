@@ -31,12 +31,12 @@ export const useGetByIdCameras = (camerasId: string) => useQuery({
 
 
 export const useAddCartCameras = () => useMutation({
-  mutationKey: ['cameras'],
+  mutationKey: ['cameras', 'cart'],
   mutationFn: (id: string) => CamerasService.addCart(id)
 });
 
 
 export const useDeleteCartCameras = () => useMutation({
-  mutationKey: ['cameras'],
+  mutationKey: ['cameras', 'cart'],
   mutationFn: (id: string) => CamerasService.deleteCart(id)
 });

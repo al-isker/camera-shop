@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
+import {ICamera} from "@/types/camera.types";
 import {routes} from "@/config/routes";
 import {useGetAllCameras} from "@/queries/cameras.query";
 
@@ -14,14 +15,6 @@ import s from './header.module.css';
 
 export const Header: FC = ({}) => {
   const pathname = usePathname();
-
-  const {data} = useGetAllCameras();
-
-  const cartCount = useMemo(() => {
-    if (data) {
-      return data.filter((item: {isInCart: boolean}) => item.isInCart).length;
-    }
-  }, [data]);
 
   return (
     <header className={s.header_wrap}>
@@ -47,18 +40,23 @@ export const Header: FC = ({}) => {
           </Link>
         </nav>
 
-        <Cart count={cartCount}/>
+        <BtnCart />
       </div>
     </header>
   );
 };
 
 
-interface CartProps {
-  count: number
-}
 
-const Cart: FC<CartProps> = ({count}) => {
+const BtnCart: FC = () => {
+  const {data} = useGetAllCameras();
+
+  const count = useMemo(() => {
+    if (data) {
+      return data.filter((item: ICamera) => item.isInCart).length;
+    }
+  }, [data]);
+
   return (
     <Link href={routes.cart} className={s.cart}>
       {count > 0 && (
