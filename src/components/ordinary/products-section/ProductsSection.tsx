@@ -33,7 +33,7 @@ export const ProductsSection:FC = () => {
               name={item.name}
               category={item.category}
               price={item.price}
-              isInCart={item.isInCart}
+              quantityInCart={item.quantityInCart}
               delay={i/10}
             />
           ))}

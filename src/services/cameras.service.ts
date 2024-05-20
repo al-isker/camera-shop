@@ -34,21 +34,12 @@ class CamerasService {
     return axios.get(targetURL.href);
   }
 
-  addCart = async (id: string) => {
+  changeQuantityInCart = async (id: string, quantity: number) => {
     const targetURL: URL = new URL(`${this.cameras}/${id}`, this.API);
 
     return axios.put(
       targetURL.href,
-      {isInCart: true}
-    );
-  }
-
-  deleteCart = async (id: string) => {
-    const targetURL: URL = new URL(`${this.cameras}/${id}`, this.API);
-
-    return axios.put(
-      targetURL.href,
-      {isInCart: false}
+      {quantityInCart: quantity}
     );
   }
 }

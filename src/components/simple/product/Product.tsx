@@ -2,14 +2,14 @@ import {FC} from 'react';
 import {motion} from "framer-motion";
 import Link from "next/link";
 import {ButtonAdd} from "@/components/ui/button-add/ButtonAdd";
-import {ButtonToCart} from "@/components/ui/button-to-cart/ButtonToCart";
+import {ButtonChange} from "@/components/ui/button-change/ButtonChange";
 
 import {ICamera} from "@/types/camera.types";
 import {routes} from "@/config/routes";
 import s from "./product.module.css";
 
 
-export const Product:FC<ICamera> = ({id, img, name, category, resolution, price, isInCart, delay}) => {
+export const Product:FC<ICamera> = ({id, img, name, category, resolution, price, quantityInCart, delay}) => {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -34,10 +34,10 @@ export const Product:FC<ICamera> = ({id, img, name, category, resolution, price,
               minimumFractionDigits: 0
             }).format(price)}
           </div>
-          {isInCart ? (
-            <ButtonToCart />
-          ) : (
+          {quantityInCart === 0 ? (
             <ButtonAdd id={id} />
+          ) : (
+            <ButtonChange id={id} quantity={quantityInCart} />
           )}
         </div>
       </Link>

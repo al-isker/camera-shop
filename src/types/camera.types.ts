@@ -6,6 +6,6 @@ export interface ICamera {
   resolution?: string
   price: number
   img: string
-  isInCart: boolean
+  quantityInCart: number
   delay?: number
 }

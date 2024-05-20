@@ -30,13 +30,9 @@ export const useGetByIdCameras = (camerasId: string) => useQuery({
 });
 
 
-export const useAddCartCameras = () => useMutation({
+export const useChangeQuantityInCartCameras = () => useMutation({
   mutationKey: ['cameras', 'cart'],
-  mutationFn: (id: string) => CamerasService.addCart(id)
-});
-
-
-export const useDeleteCartCameras = () => useMutation({
-  mutationKey: ['cameras', 'cart'],
-  mutationFn: (id: string) => CamerasService.deleteCart(id)
+  mutationFn: (
+    {id, value}: {id: string, value: number}
+  ) => CamerasService.changeQuantityInCart(id, value)
 });
