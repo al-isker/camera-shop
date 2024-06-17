@@ -17,7 +17,7 @@ export const Cart:FC = () => {
   const {data, isPending} = useGetAllCameras();
 
   const resultData = useMemo(() => {
-      return data?.filter((item: ICamera) => item.isInCart);
+      return data?.filter((item: ICamera) => item.quantityInCart > 0);
   }, [data]);
 
   const total = useMemo(() => {
@@ -46,7 +46,7 @@ export const Cart:FC = () => {
               category={item.category}
               resolution={item.resolution}
               price={item.price}
-              isInCart={item.isInCart}
+              quantityInCart={item.quantityInCart}
               delay={i / 5}
             />
           ))}

@@ -1,14 +1,14 @@
 import {FC} from 'react';
 import {motion} from "framer-motion";
 import Link from "next/link";
+import {ButtonChange} from "@/components/ui/button-change/ButtonChange";
 
 import {routes} from "@/config/routes";
 import {ICamera} from "@/types/camera.types";
 
 import s from "./cart-product.module.css";
-import {ButtonDelete} from "@/components/ui/button-delete/ButtonDelete";
 
-export const CartProduct:FC<ICamera> = ({id, img, name, category, resolution, price, delay}) => {
+export const CartProduct:FC<ICamera> = ({id, img, name, category, resolution, price, quantityInCart, delay}) => {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -31,7 +31,7 @@ export const CartProduct:FC<ICamera> = ({id, img, name, category, resolution, pr
               minimumFractionDigits: 0
             }).format(price)}
           </div>
-          <ButtonDelete id={id} />
+          <ButtonChange id={id} quantity={quantityInCart} />
         </div>
       </Link>
     </motion.div>

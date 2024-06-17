@@ -53,7 +53,7 @@ const BtnCart: FC = () => {
 
   const count = useMemo(() => {
     if (data) {
-      return data.filter((item: ICamera) => item.isInCart).length;
+      return data.filter((item: ICamera) => item.quantityInCart > 0).length;
     }
   }, [data]);
 

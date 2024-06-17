@@ -48,7 +48,7 @@ export const Category: FC = () => {
               name={item.name}
               resolution={item.resolution}
               price={item.price}
-              isInCart={item.isInCart}
+              quantityInCart={item.quantityInCart}
               delay={i / 20}
             />
           ))}
